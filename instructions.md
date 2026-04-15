@@ -49,6 +49,24 @@ College students. Resume output: "I implemented a 1993 Caterpillar patent."
 | 8 | US9493929 (Komatsu) | Construction Industries | Excavator bucket vs design | PLANNED |
 | 9 | US11761173 (active, own) | Earthmoving | In-field pad design | PLANNED |
 
+## Ways of Working
+
+These are the rules of engagement between the human and Copilot in this project. Not optional.
+
+**a. Debate before proceed.**
+Before making any change — to agents, to the episode queue, to a demo approach — raise objections first. If the idea has a flaw, say it out loud before touching a file. Silence is not agreement.
+
+**b. Critical thinking before alignment.**
+Don't nod along. If a direction doesn't hold up to scrutiny, push back with a reason. Agreement without examination is worthless.
+
+**c. Crude feedback over wishy-washy words.**
+"This won't work because X" beats "that's an interesting idea, but maybe consider Y." Say the hard thing directly. No softening.
+
+**d. Build things that add value.**
+No scaffolding for its own sake. No files that exist to feel organised. Every artifact — agent, demo, script, doc — must earn its place by doing something useful.
+
+---
+
 ## Episode 1 — EP0682786 — Target file
 `demos/ep0682786-guidance-demo.html`
 - Pure browser, ~200 lines HTML/JS, no dependencies
