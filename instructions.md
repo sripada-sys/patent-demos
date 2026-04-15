@@ -46,8 +46,17 @@ College students. Resume output: "I implemented a 1993 Caterpillar patent."
 | 5 | US6701239 (2002 CAT) | Earthmoving | Colour-coded cut/fill display | PLANNED |
 | 6 | US7139662 (2004 Trimble) | Earthmoving | Dual-antenna blade tilt (~expired 2024) | PLANNED |
 | 7 | US8145391 (2008 Trimble) | Earthmoving | Automatic blade control PID | PLANNED |
-| 8 | US9493929 (Komatsu) | Construction Industries | Excavator bucket vs design | PLANNED |
-| 9 | US11761173 (active, own) | Earthmoving | In-field pad design | PLANNED |
+| 8 | JP3534979B2 (Topcon, 1996, expired 2017) | Construction Industries | First automatic excavator bucket-to-design-surface — predates Komatsu US9493929 by 20 years | CANDIDATE |
+| 9 | US3604512A (Cat Tractor, 1969, expired 1988) | Earthmoving | The founding patent — rotating laser beam as grade reference for motor grader blade | CANDIDATE |
+| 10 | US7172363B2 (Cat Paving, 2004, expired 2024) | Paving | Paver mat thickness + IRI from front/rear sensors — two ultrasonics + phone demo | CANDIDATE |
+| 11 | US5318378A (Cat Paving, 1992, expired 2012) | Paving | Cold planer kickback grade control — first safety-integrated grade control for milling | CANDIDATE |
+| 12 | US7808626B2 (Trimble, 2004, expired 2024) | Mining | Self-surveying laser + radio positioning for mine haul roads — laser transmitter measures own position via GNSS | CANDIDATE |
+| 13 | US7310137B2 (Trimble, 2004, expired 2024) | Mining | Self-surveying laser transmitter — eliminated need for surveyor to set up rotating laser plane | CANDIDATE |
+| 14 | US3604512A → US4600997A (Spectra-Physics, 1983, expired 2003) | Earthmoving | Rotating laser plane democratised grade control — the patent behind every laser level on every job site | CANDIDATE |
+| 15 | US11761173 (active, own) | Earthmoving | In-field pad design | PLANNED |
+
+> **Candidate source:** Landscape matrix search 15 April 2026. Full results in `docs/patents/grade-control-landscape.html`.
+> **Ep 8 note:** US9493929 (Komatsu) replaced by JP3534979B2 (Topcon 1996) — same concept, 20 years earlier, firmly expired, stronger historical narrative.
 
 ## Ways of Working
 

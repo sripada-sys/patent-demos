@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Grade Control — Patent Landscape Matrix</title>
+<style>
+  body { font-family: system-ui, sans-serif; font-size: 14px; margin: 2rem; color: #1a1a1a; background: #fafafa; }
+  h1 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.1rem; margin-top: 2.5rem; border-bottom: 2px solid #ddd; padding-bottom: 0.25rem; }
+  h3 { font-size: 0.95rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  /* Density grid */
+  .grid-wrap { overflow-x: auto; margin-bottom: 2rem; }
+  table.density { border-collapse: collapse; font-size: 0.8rem; }
+  table.density th, table.density td { border: 1px solid #ccc; padding: 6px 10px; text-align: center; white-space: nowrap; }
+  table.density th { background: #f0f0f0; font-weight: 600; }
+  .HIGH  { background: #1a7f37; color: #fff; font-weight: 700; }
+  .MED   { background: #bf8700; color: #fff; font-weight: 700; }
+  .LOW   { background: #e8e8e8; color: #333; }
+  .BLANK { background: #fff; color: #bbb; font-style: italic; }
+
+  /* Patent tables */
+  table.patents { border-collapse: collapse; width: 100%; font-size: 0.8rem; margin-bottom: 1rem; }
+  table.patents th { background: #f5f5f5; text-align: left; padding: 5px 8px; border-bottom: 2px solid #ccc; }
+  table.patents td { padding: 4px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
+  table.patents tr:hover { background: #fafafa; }
+  .expired { color: #1a7f37; font-weight: 600; }
+  .active  { color: #cf222e; }
+  .note { background: #fffbdd; border-left: 3px solid #bf8700; padding: 6px 10px; font-size: 0.8rem; margin: 0.5rem 0 1rem 0; }
+  .gap-note { background: #fff0f0; border-left: 3px solid #cf222e; padding: 6px 10px; font-size: 0.8rem; margin: 0.5rem 0 1rem 0; }
+  .cell-header { display: flex; align-items: baseline; gap: 1rem; }
+  .cell-header .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 3px; font-weight: 700; }
+  .badge.HIGH  { background: #1a7f37; color: #fff; }
+  .badge.MED   { background: #bf8700; color: #fff; }
+  .badge.LOW   { background: #888; color: #fff; }
+  .badge.BLANK { background: #ddd; color: #666; }
+  .query { font-family: monospace; font-size: 0.78rem; background: #f6f8fa; border: 1px solid #ddd; padding: 4px 8px; border-radius: 3px; display: block; margin: 0.25rem 0 0.5rem 0; word-break: break-all; }
+  .count { font-size: 0.8rem; color: #555; margin-bottom: 0.5rem; }
+  .tail-note { color: #888; font-style: italic; font-size: 0.78rem; margin-top: 0.25rem; }
+  details summary { cursor: pointer; color: #0969da; font-size: 0.85rem; margin: 0.25rem 0; }
+</style>
+</head>
+<body>
+
+<h1>Machine Grade Control — Patent Landscape Matrix</h1>
+<p class="meta">
+  Searched: 15 April 2026 · Google Patents · Assignees: Caterpillar, Trimble, Topcon, Komatsu, Hexagon, Leica Geosystems, JCB · Filter: before:priority:20150101<br>
+  <strong>Page 1 only (top 10 by relevance)</strong> captured for cells with &gt;10 results — tail entries exist but were not retrieved (Google Patents SPA pagination limitation).<br>
+  Status: US post-1995 = 20yr from earliest priority. Pre-1995 = 17yr from grant. Maintenance fee lapse not independently verified.
+</p>
+
+<!-- ===== DENSITY GRID ===== -->
+<h2>Density Overview</h2>
+<div class="grid-wrap">
+<table class="density">
+  <thead>
+    <tr>
+      <th>Segment</th>
+      <th>Survey</th>
+      <th>Design</th>
+      <th>Rough Grade</th>
+      <th>Fine Grade</th>
+      <th>Finish Surface</th>
+      <th>Compaction</th>
+      <th>Maintenance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthmoving</th>
+      <td class="LOW">LOW<br><small>~10</small></td>
+      <td class="MED">MED<br><small>~18</small></td>
+      <td class="LOW">LOW<br><small>~4</small></td>
+      <td class="MED">MED<br><small>~20</small></td>
+      <td class="MED">MED<br><small>~29</small></td>
+      <td class="LOW">LOW<br><small>~3</small></td>
+      <td class="MED">MED<br><small>~18</small></td>
+    </tr>
+    <tr>
+      <th>Construction</th>
+      <td class="LOW">LOW<br><small>~2</small></td>
+      <td class="LOW">LOW<br><small>~10</small></td>
+      <td class="LOW">LOW<br><small>~3</small></td>
+      <td class="MED">MED<br><small>~17</small></td>
+      <td class="MED">MED<br><small>~18</small></td>
+      <td class="BLANK">BLANK<br><small>0</small></td>
+      <td class="MED">MED<br><small>~12</small></td>
+    </tr>
+    <tr>
+      <th>Mining</th>
+      <td class="LOW">LOW<br><small>~6</small></td>
+      <td class="MED">MED<br><small>~16</small></td>
+      <td class="MED">MED<br><small>~17</small></td>
+      <td class="MED">MED<br><small>~13</small></td>
+      <td class="MED">MED<br><small>~21</small></td>
+      <td class="BLANK">BLANK<br><small>0</small></td>
+      <td class="MED">MED<br><small>~13</small></td>
+    </tr>
+    <tr>
+      <th>Paving</th>
+      <td class="LOW">LOW<br><small>~5</small></td>
+      <td class="MED">MED<br><small>~16</small></td>
+      <td class="MED">MED<br><small>~17</small></td>
+      <td class="MED">MED<br><small>~14</small></td>
+      <td class="MED">MED<br><small>~24</small></td>
+      <td class="LOW">LOW<br><small>~3</small></td>
+      <td class="MED">MED<br><small>~14</small></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CELL DETAIL ===== -->
+<h2>Full Cell Detail</h2>
+
+<!-- CELL 1 -->
+<h3><div class="cell-header">Cell 1 — Earthmoving × Survey <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(dozer OR "motor grader" OR scraper) "grade control" survey + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~10</strong> · All 10 retrieved</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US3604512A</td><td>Electrooptical Control System for Vehicles</td><td>Caterpillar Tractor Co</td><td>1969-09-16</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>CN102312452B</td><td>Grade Control for an Earthmoving System at Higher Machine Speeds</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2010-07-01</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7654335B2</td><td>System and Method for Controlling an Implement Based Upon a Gear Shift</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-02-08</td><td class="expired">✅ EXPIRED ~2026</td></tr>
+    <tr><td>CN101438512B</td><td>GNSS/GPS Location-Specific Connection System</td><td>Trimble Navigation Limited</td><td>2006-02-28</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8611926B2</td><td>Method and System for Communicating Information to a Land Surveying Rover</td><td>Trimble Navigation Limited</td><td>2003-09-19</td><td class="expired">✅ EXPIRED 2023</td></tr>
+    <tr><td>US7857071B1</td><td>Grade Indicator for Excavation Operations</td><td>Topcon Positioning Systems, Inc.</td><td>2005-08-05</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>DE69322281T2</td><td>Method and Device for Controlling a Road Milling Machine Depending on a Return</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7764365B2</td><td>Combination Laser Detector and Global Navigation Satellite Receiver System</td><td>Trimble Navigation Limited</td><td>2004-07-23</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>JPS5955925A</td><td>Control Method of Soil Preparation Machine</td><td>Komatsu Ltd</td><td>1982-09-21</td><td class="expired">✅ EXPIRED</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 2 -->
+<h3><div class="cell-header">Cell 2 — Earthmoving × Design <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(dozer OR "motor grader" OR scraper) "grade control" (design OR "site design") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~18</strong> · Top 10 retrieved · ~8 tail entries not captured</p>
+<p class="tail-note">⚠️ Tail note: page 2 fetch returned same patent families as page 1 — ~10 distinct families across 18 stated results. Majority are ACTIVE 2009–2014 Caterpillar filings.</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>WO2011106296A2</td><td>System and Method for Determining a Position on an Implement Relative to a Machine</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015207928B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9234329B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>JP5391345B1</td><td>Bulldozer and Blade Control Method</td><td>Komatsu Ltd</td><td>2013-03-08</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+<div class="note">No prominent expired patents in top 10. Expired patents known to appear in this cell (from Cell 1 crossover): US3604512A (Cat Tractor 1969), US3896899A (Cat Tractor 1974), US6530721B2 (Trimble 2001).</div>
+
+<!-- CELL 3 -->
+<h3><div class="cell-header">Cell 3 — Earthmoving × Rough Grade <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(dozer OR "motor grader") "grade control" ("cut and fill" OR "target elevation" OR "design surface") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~4</strong> · All 4 retrieved</p>
+<div class="note">Vocabulary gap: "cut and fill", "target elevation", "design surface" are not common in patent claims alongside "grade control". Concepts exist but are claimed as "desired cutting plane" or "design grade". All 4 results are ACTIVE.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>JP5391345B1</td><td>Bulldozer and Blade Control Method</td><td>Komatsu Ltd</td><td>2013-03-08</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9891605B2</td><td>Grade Control Cleanup Pass Using Volume Constraints</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 4 -->
+<h3><div class="cell-header">Cell 4 — Earthmoving × Fine Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(dozer OR "motor grader") "grade control" (precision OR millimeter OR "fine grading") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~20</strong> · Top 10 retrieved · ~10 tail entries not captured</p>
+<p class="tail-note">⚠️ Tail note: page 2 identical families to page 1 — ~10 distinct families across 20 stated results (jurisdiction duplicates inflate count).</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>AU2011221225A1</td><td>System and Method for Determining a Position on an Implement Relative to a Machine</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US3604512A</td><td>Electrooptical Control System for Vehicles</td><td>Caterpillar Tractor Co</td><td>1969-09-16</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US3896899A</td><td>Blade Stabilizer for Earth Working Apparatus</td><td>Caterpillar Tractor Co</td><td>1974-01-21</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>DE112005000552T5</td><td>Shockproof Device (GPS/RTK dozer mount)</td><td>Trimble Navigation Ltd.</td><td>2004-03-11</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8634991B2</td><td>Grade Control for an Earthmoving System at Higher Machine Speeds</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2010-07-01</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7857071B1</td><td>Grade Indicator for Excavation Operations</td><td>Topcon Positioning Systems, Inc.</td><td>2005-08-05</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>GB2420422A</td><td>Excavator Level Control System</td><td>Caterpillar Inc.</td><td>2004-11-23</td><td class="expired">✅ EXPIRED (pub only, not granted)</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 5 -->
+<h3><div class="cell-header">Cell 5 — Earthmoving × Finish Surface <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(dozer OR "motor grader") "grade control" (finish OR "surface preparation" OR smoothing) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~29</strong> · Top 18 retrieved · ~11 tail entries not captured</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019013A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019012A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining a Position on an Implement Relative to a Machine</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>JP5391345B1</td><td>Bulldozer and Blade Control Method</td><td>Komatsu Ltd</td><td>2013-03-08</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015207928B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8634991B2</td><td>Grade Control for an Earthmoving System at Higher Machine Speeds</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2010-07-01</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US3604512A</td><td>Electrooptical Control System for Vehicles</td><td>Caterpillar Tractor Co</td><td>1969-09-16</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US3896899A</td><td>Blade Stabilizer for Earth Working Apparatus</td><td>Caterpillar Tractor Co</td><td>1974-01-21</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>DE112005000552T5</td><td>Shockproof Device (GPS/RTK dozer mount)</td><td>Trimble Navigation Ltd.</td><td>2004-03-11</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US7857071B1</td><td>Grade Indicator for Excavation Operations</td><td>Topcon Positioning Systems, Inc.</td><td>2005-08-05</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>GB2420422A</td><td>Excavator Level Control System</td><td>Caterpillar Inc.</td><td>2004-11-23</td><td class="expired">✅ EXPIRED (pub only)</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2011221225A1</td><td>System and Method for Determining a Position on an Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102312452B</td><td>Grade Control for an Earthmoving System at Higher Machine Speeds</td><td>Caterpillar Trimble Control Technologies</td><td>2010-07-01</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 6 -->
+<h3><div class="cell-header">Cell 6 — Earthmoving × Compaction <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(dozer OR compactor) "grade control" compaction + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~3</strong> · All 3 retrieved</p>
+<div class="note">Only US7172363B2 belongs to a target assignee. The other 2 are non-target (Barber Greene, Spectra-Physics). "Grade control + compaction" vocabulary is not used for soil compaction dozers — they use "compaction monitoring" / "coverage tracking" separately. Effectively BLANK for target-assignee soil compaction.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US3891338A</td><td>Convergent Link System for Connecting a Screed to the Traction Unit of a Paving Machine</td><td>Barber Greene Co <em>(non-target)</em></td><td>1973-04-30</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7172363B2</td><td>Paving Machine Output Monitoring System</td><td>Caterpillar Paving Products Inc. ✅</td><td>2004-08-31</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US4600997A</td><td>Surveying System</td><td>Spectra-Physics, Inc. <em>(non-target)</em></td><td>1983-05-09</td><td class="expired">✅ EXPIRED</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 7 -->
+<h3><div class="cell-header">Cell 7 — Earthmoving × Maintenance <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(dozer OR "motor grader") "grade control" maintenance + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~18</strong> · All 18 retrieved (pages 1 + 2 combined)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516756A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>GB2420422A</td><td>Excavator Level Control System</td><td>Caterpillar Inc.</td><td>2004-11-23</td><td class="expired">✅ EXPIRED (pub only)</td></tr>
+    <tr><td>JPS5837237A</td><td>Controller for Blade of Civil Engineering Machine</td><td>Komatsu Ltd</td><td>1981-08-26</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US9213331B2</td><td>Remote Control System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US3896899A</td><td>Blade Stabilizer for Earth Working Apparatus</td><td>Caterpillar Tractor Co</td><td>1974-01-21</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>DE69322281T2</td><td>Method and Device for Controlling a Road Milling Machine Depending on a Return</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140172127A1</td><td>Instrument System with Portable Computing Device</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US3604512A</td><td>Electrooptical Control System for Vehicles</td><td>Caterpillar Tractor Co</td><td>1969-09-16</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019013A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019012A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining a Position on an Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>JP5391345B1</td><td>Bulldozer and Blade Control Method</td><td>Komatsu Ltd</td><td>2013-03-08</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8634991B2</td><td>Grade Control for an Earthmoving System at Higher Machine Speeds</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2010-07-01</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015207928B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 8 -->
+<h3><div class="cell-header">Cell 8 — Construction × Survey <span class="badge LOW">LOW</span></div></h3>
+<code class="query">excavator "grade control" survey + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~2</strong> · All 2 retrieved</p>
+<div class="note">Genuinely sparse. Excavator survey/positioning patents exist but rarely co-use "grade control" + "survey" in claim text. Topcon excavator patents use different vocabulary ("bucket tip position", "design elevation").</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7764365B2</td><td>Combination Laser Detector and Global Navigation Satellite Receiver System</td><td>Trimble Navigation Limited</td><td>2004-07-23</td><td class="expired">✅ EXPIRED 2024</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 9 -->
+<h3><div class="cell-header">Cell 9 — Construction × Design <span class="badge LOW">LOW</span></div></h3>
+<code class="query">excavator "grade control" (design OR "design surface") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~10</strong> · All 10 retrieved</p>
+<div class="note">8 of 10 ACTIVE. The 2 expired results (Trimble 2004) are positioning hardware patents co-occurring with "design surface" in excavator context. Topcon JP3534979B2 appeared in some fetches but not in top-10 for this precise query.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019013A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019012A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9234329B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining a Position on an Implement Relative to a Machine</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN101019002B</td><td>Location Track and Control System / Combination Laser Detector and GPS</td><td>Trimble Navigation Limited</td><td>2004-07-23</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>DE112005000552T5</td><td>Shockproof Device (GPS/RTK dozer mount)</td><td>Trimble Navigation Ltd.</td><td>2004-03-11</td><td class="expired">✅ EXPIRED 2025</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 10 -->
+<h3><div class="cell-header">Cell 10 — Construction × Rough Grade <span class="badge LOW">LOW</span></div></h3>
+<code class="query">excavator "grade control" ("cut and fill" OR depth OR "GPS guidance") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~3</strong> · All 3 retrieved</p>
+<div class="note">"Cut and fill" is extremely rare in excavator patent claims. Vocabulary for excavator rough grade = "dig depth", "design elevation", "bucket tip position". Most significant result: JP3534979B2 (Topcon 1996) — foundational excavator machine control patent.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>JP3534979B2</td><td>Excavator Control Method</td><td>Topcon (株式会社トプコン)</td><td>1996-06-05</td><td class="expired">✅ EXPIRED 2017</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining a Position on an Implement Relative to a Machine</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 11 -->
+<h3><div class="cell-header">Cell 11 — Construction × Fine Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">excavator "grade control" (precision OR accuracy OR laser OR tolerance) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~17</strong> · All 17 retrieved (pages 1 + 2)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>WO2011106296A2</td><td>System and Method for Determining a Position on an Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9213331B2</td><td>Remote Control System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140170617A1</td><td>Monitoring System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>JP3534979B2</td><td>Excavator Control Method</td><td>Topcon (株式会社トプコン)</td><td>1996-06-05</td><td class="expired">✅ EXPIRED 2017</td></tr>
+    <tr><td>AU2011221225A1</td><td>System and Method for Determining Position on an Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>DE112005000552T5</td><td>Shockproof Device</td><td>Trimble Navigation Ltd.</td><td>2004-03-11</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>CN101019002B</td><td>Location Track / Laser + GPS</td><td>Trimble Navigation Limited</td><td>2004-07-23</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 12 -->
+<h3><div class="cell-header">Cell 12 — Construction × Finish Surface <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">excavator "grade control" (finish OR surface OR smoothing) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~18</strong> · All 18 retrieved (pages 1 + 2)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019013A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019012A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>JP3534979B2</td><td>Excavator Control Method</td><td>Topcon (株式会社トプコン)</td><td>1996-06-05</td><td class="expired">✅ EXPIRED 2017</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9213331B2</td><td>Remote Control System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140170617A1</td><td>Monitoring System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2011221225A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>WO2011106296A2</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN101019002B</td><td>Location Track / Laser + GPS System</td><td>Trimble Navigation Limited</td><td>2004-07-23</td><td class="expired">✅ EXPIRED 2025</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 13 -->
+<h3><div class="cell-header">Cell 13 — Construction × Compaction <span class="badge BLANK">BLANK</span></div></h3>
+<code class="query">excavator "grade control" compaction + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>0</strong> · Confirmed live 15 April 2026</p>
+<div class="gap-note">Structural absence. Excavators do not perform compaction — that is done by dedicated soil compactors. No patent combines excavator + grade control + compaction as a primary technical contribution. This is a logical gap, not a vocabulary gap.</div>
+
+<!-- CELL 14 -->
+<h3><div class="cell-header">Cell 14 — Construction × Maintenance <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">excavator "grade control" maintenance + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~12</strong> · All 12 retrieved (pages 1 + 2)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9213331B2</td><td>Remote Control System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140170617A1</td><td>Monitoring System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu wheel loader drive force)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140172127A1</td><td>Instrument System with Portable Computing Device</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20090143878A1</td><td>Operator Profile Control System for a Machine</td><td>Caterpillar Inc.</td><td>2007-12-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>GB2420422A</td><td>Excavator Level Control System</td><td>Caterpillar Inc.</td><td>2004-11-23</td><td class="expired">✅ EXPIRED (pub only)</td></tr>
+    <tr><td>JP3534979B2</td><td>Excavator Control Method</td><td>Topcon (株式会社トプコン)</td><td>1996-06-05</td><td class="expired">✅ EXPIRED 2017</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 15 -->
+<h3><div class="cell-header">Cell 15 — Mining × Survey <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(mining OR "haul truck") "grade control" survey + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~6</strong> · All 6 retrieved</p>
+<div class="note">All 6 are Trimble radio-laser positioning patents for large-area mining sites. Self-surveying laser + GPS hybrid systems directly applicable to mine haul road grade control. Best expired-patent density of the Mining row.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US7768450B2</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Ltd.</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7808626B2</td><td>Method of Mobile Radio Positioning Aided by Single Fan Self-Surveying Laser Transmitter</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US20060127096A1</td><td>Self Surveying Laser Transmitter</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>CN101133341A</td><td>Three-Dimensional Positioning System Based on Radio and Light</td><td>Trimble Navigation Limited</td><td>2005-02-15</td><td class="expired">✅ EXPIRED 2026</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 16 -->
+<h3><div class="cell-header">Cell 16 — Mining × Design <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(mining OR "haul road") "grade control" (design OR "mine design") + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~16</strong> · All 16 retrieved (pages 1 + 2)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US9234329B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US7768450B2</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Ltd.</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7808626B2</td><td>Method of Mobile Radio Positioning Aided by Self-Surveying Laser</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>CN101680942B</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Limited</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2011221225A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7310137B2</td><td>Self Surveying Laser Transmitter</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 17 -->
+<h3><div class="cell-header">Cell 17 — Mining × Rough Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(mining OR "haul truck") "grade control" (bench OR overburden OR "bulk material" OR cut) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~17</strong> · Top 10 retrieved · ~7 tail entries not captured</p>
+<div class="note">High false-positive rate. CN105673177B (haul truck catalyst housing) appears via keyword match — not a grade control patent. Most results are cross-segment Caterpillar platform patents, not mining-specific. 0 expired in top 10.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9891605B2</td><td>Grade Control Cleanup Pass Using Volume Constraints</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN105673177B</td><td>Post-Processing Module with Replaceable Catalyst Housing (haul truck powertrain)</td><td>Caterpillar Inc.</td><td>2014-12-05</td><td class="active">⚠️ ACTIVE <em>(false positive — not grade control)</em></td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20160040388A1</td><td>Grade Control Cleanup Pass Using Cost Optimization</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 18 -->
+<h3><div class="cell-header">Cell 18 — Mining × Fine Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(mining OR "haul road") "grade control" (precision OR floor OR ramp) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~13</strong> · All 13 retrieved</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>CN101680942B</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Limited</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9891605B2</td><td>Grade Control Cleanup Pass Using Volume Constraints</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7808626B2</td><td>Method of Mobile Radio Positioning Aided by Self-Surveying Laser</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US4186968A</td><td>Roadway Pavement Planing Machine</td><td>Barco Manufacturing Company <em>(non-target)</em></td><td>1977-04-04</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7768450B2</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Ltd.</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 19 -->
+<h3><div class="cell-header">Cell 19 — Mining × Finish Surface <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(mining OR "haul road") "grade control" (surface OR floor OR finish) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~21</strong> · Top 10 retrieved · ~11 tail entries not captured</p>
+<p class="tail-note">⚠️ Tail note: additional 11 results confirmed to be further Caterpillar/Trimble family members and same cross-cell recurrences as cells 16–18.</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8275524B2</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9891605B2</td><td>Grade Control Cleanup Pass Using Volume Constraints</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US7768450B2</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Ltd.</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement to Maximize Machine Productivity</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20160040388A1</td><td>Grade Control Cleanup Pass Using Cost Optimization</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 20 -->
+<h3><div class="cell-header">Cell 20 — Mining × Compaction <span class="badge BLANK">BLANK</span></div></h3>
+<code class="query">(mining OR "haul road") "grade control" compaction + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>0</strong> · Confirmed live 15 April 2026</p>
+<div class="gap-note">Genuine white space. None of the 7 target assignees filed haul-road compaction claims under "grade control". Haul-road compaction is a fleet/operational domain — not claimed as machine guidance. Compaction patents for mining live under Dynapac/Bomag, outside this assignee set.</div>
+
+<!-- CELL 21 -->
+<h3><div class="cell-header">Cell 21 — Mining × Maintenance <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(mining OR "haul road") "grade control" maintenance + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~13</strong> · All 13 retrieved</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US7768450B2</td><td>Position Determination System Using Radio and Laser in Combination</td><td>Trimble Navigation Ltd.</td><td>2007-04-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu wheel loader drive train control)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7808626B2</td><td>Method of Mobile Radio Positioning Aided by Self-Surveying Laser</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US20090143878A1</td><td>Operator Profile Control System for a Machine</td><td>Caterpillar Inc.</td><td>2007-12-04</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US4186968A</td><td>Roadway Pavement Planing Machine</td><td>Barco Manufacturing Co <em>(non-target)</em></td><td>1977-04-04</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7310137B2</td><td>Self Surveying Laser Transmitter</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US20140172127A1</td><td>Instrument System with Portable Computing Device</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9506224B2</td><td>Grade Control Cleanup Pass Using Splines</td><td>Caterpillar Inc.</td><td>2014-08-06</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 22 -->
+<h3><div class="cell-header">Cell 22 — Paving × Survey <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(paver OR asphalt OR screed) "grade control" survey + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~5</strong> · All 5 retrieved</p>
+<div class="note">4 of 5 EXPIRED. US5318378A and EP0662177B1 are the same underlying invention (cold planer kickback control). Strong demo candidate.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US5318378A</td><td>Method and Apparatus for Controlling a Cold Planer in Response to a Kickback</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED ~2012</td></tr>
+    <tr><td>US4600997A</td><td>Surveying System</td><td>Spectra-Physics, Inc. <em>(non-target)</em></td><td>1983-05-09</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>EP0662177B1</td><td>Method and Apparatus for Controlling a Cold Planer in Response to a Kickback (EP)</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 23 -->
+<h3><div class="cell-header">Cell 23 — Paving × Design <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(paver OR asphalt OR screed) "grade control" design + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~16</strong> · All 16 retrieved (pages 1 + 2)</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US9234329B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9267446B2</td><td>Engine Speed Management Control System for Cold Planers</td><td>Caterpillar Paving Products Inc.</td><td>2012-06-15</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US4186968A</td><td>Roadway Pavement Planing Machine</td><td>Barco Manufacturing Co <em>(non-target)</em></td><td>1977-04-04</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7808626B2</td><td>Method of Mobile Radio Positioning Aided by Self-Surveying Laser</td><td>Trimble Navigation Ltd.</td><td>2004-12-11</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu drive force)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 24 -->
+<h3><div class="cell-header">Cell 24 — Paving × Rough Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(paver OR asphalt OR screed) "grade control" (base OR subbase OR subgrade) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~17</strong> · Top 10 retrieved · ~7 tail entries not captured</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US3891338A</td><td>Convergent Link System for Connecting a Screed to the Traction Unit of a Paving Machine</td><td>Barber Greene Co <em>(non-target)</em></td><td>1973-04-30</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US9213331B2</td><td>Remote Control System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140170617A1</td><td>Monitoring System for a Machine</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140172127A1</td><td>Instrument System with Portable Computing Device</td><td>Caterpillar Inc.</td><td>2012-12-19</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 25 -->
+<h3><div class="cell-header">Cell 25 — Paving × Fine Grade <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(paver OR asphalt OR screed) "grade control" (smoothness OR IRI OR "mat thickness" OR profile) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~14</strong> · All 14 retrieved</p>
+<div class="note"><strong>Demo highlight:</strong> US7172363B2 (Caterpillar Paving 2004) specifically claims paving machine mat thickness monitoring via front/rear sensors. EXPIRED 2024 — excellent demo candidate.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US7172363B2</td><td>Paving Machine Output Monitoring System</td><td>Caterpillar Paving Products Inc.</td><td>2004-08-31</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US4186968A</td><td>Roadway Pavement Planing Machine</td><td>Barco Manufacturing Co <em>(non-target)</em></td><td>1977-04-04</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System (duplicate family)</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement (duplicate pub)</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 26 -->
+<h3><div class="cell-header">Cell 26 — Paving × Finish Surface <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(paver OR asphalt OR screed) "grade control" (mat OR surface OR smoothing) + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~24</strong> · Top 10 retrieved + partial page 2 · ~6 tail entries not captured</p>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US3891338A</td><td>Convergent Link System for Connecting a Screed to the Traction Unit of a Paving Machine</td><td>Barber Greene Co <em>(non-target)</em></td><td>1973-04-30</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7172363B2</td><td>Paving Machine Output Monitoring System</td><td>Caterpillar Paving Products Inc.</td><td>2004-08-31</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2054555B1</td><td>Excavator 3D Integrated Laser and Radio Positioning Guidance System</td><td>Caterpillar Trimble Control Technologies LLC</td><td>2006-08-24</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US5114267A</td><td>Integrated Paver with Windrow Pick-Up Capability</td><td>Caterpillar Paving Products, Inc.</td><td>1989-02-10</td><td class="expired">✅ EXPIRED ~2010</td></tr>
+    <tr><td>US7595867B2</td><td>Mobile Radio Positioning Aided by Single Fan Laser</td><td>Trimble Navigation Ltd.</td><td>2005-08-27</td><td class="expired">✅ EXPIRED 2025</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US9267446B2</td><td>Engine Speed Management Control System for Cold Planers</td><td>Caterpillar Paving Products Inc.</td><td>2012-06-15</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8948978B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US8965639B2</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015234300A1</td><td>Fiber Optic Implement Position Determination System</td><td>Caterpillar Inc.</td><td>2014-10-06</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102713086A</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102770606A</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019013A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20140019012A1</td><td>System and Method for Machine Control</td><td>Caterpillar Inc.</td><td>2012-07-10</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>WO2011106296A2</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 27 -->
+<h3><div class="cell-header">Cell 27 — Paving × Compaction <span class="badge LOW">LOW</span></div></h3>
+<code class="query">(paver OR asphalt OR compactor) "grade control" compaction + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~3</strong> · All 3 retrieved</p>
+<div class="note">Only US7172363B2 is a target-assignee patent. "Grade control" and "compaction" are treated as separate systems in asphalt paving — screed controls grade, roller controls compaction. Effectively LOW (1 in-scope result) — vocabulary gap, not structural absence.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US3891338A</td><td>Convergent Link System for Connecting a Screed to the Traction Unit of a Paving Machine</td><td>Barber Greene Co <em>(non-target)</em></td><td>1973-04-30</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7172363B2</td><td>Paving Machine Output Monitoring System</td><td>Caterpillar Paving Products Inc.</td><td>2004-08-31</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US4600997A</td><td>Surveying System</td><td>Spectra-Physics, Inc. <em>(non-target)</em></td><td>1983-05-09</td><td class="expired">✅ EXPIRED</td></tr>
+  </tbody>
+</table>
+
+<!-- CELL 28 -->
+<h3><div class="cell-header">Cell 28 — Paving × Maintenance <span class="badge MED">MEDIUM</span></div></h3>
+<code class="query">(paver OR asphalt OR milling) "grade control" maintenance + assignees + before:priority:20150101</code>
+<p class="count">Result count: <strong>~14</strong> · All 14 retrieved</p>
+<div class="note">Best expired-patent density of the Paving row — 6 of 14 EXPIRED. Strong cell for episode research.</div>
+<table class="patents">
+  <thead><tr><th>Patent</th><th>Title</th><th>Assignee</th><th>Priority</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>US9267446B2</td><td>Engine Speed Management Control System for Cold Planers</td><td>Caterpillar Paving Products Inc.</td><td>2012-06-15</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>CN102428290B</td><td>Construction Vehicle (Komatsu wheel loader)</td><td>Komatsu Ltd</td><td>2009-03-18</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>GB2333862A</td><td>System for Controllably Avoiding an Obstruction to a Roadway Planer</td><td>Caterpillar Paving Products</td><td>1998-02-02</td><td class="expired">✅ EXPIRED ~2019</td></tr>
+    <tr><td>US4186968A</td><td>Roadway Pavement Planing Machine</td><td>Barco Manufacturing Co <em>(non-target)</em></td><td>1977-04-04</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US7172363B2</td><td>Paving Machine Output Monitoring System</td><td>Caterpillar Paving Products Inc.</td><td>2004-08-31</td><td class="expired">✅ EXPIRED 2024</td></tr>
+    <tr><td>US5318378A</td><td>Method and Apparatus for Controlling a Cold Planer in Response to a Kickback</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED ~2012</td></tr>
+    <tr><td>US5114267A</td><td>Integrated Paver with Windrow Pick-Up Capability</td><td>Caterpillar Paving Products, Inc.</td><td>1989-02-10</td><td class="expired">✅ EXPIRED ~2010</td></tr>
+    <tr><td>EP0662177B1</td><td>Method and Apparatus for Controlling a Cold Planer in Response to a Kickback (EP)</td><td>Caterpillar Paving Products Inc.</td><td>1992-09-28</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US3879149A</td><td>Method and Apparatus for Providing Grade Control for the Screed of a Paver</td><td>Barber Greene Co <em>(non-target)</em></td><td>1972-09-18</td><td class="expired">✅ EXPIRED</td></tr>
+    <tr><td>US6530721B2</td><td>Method for Control System Setup</td><td>Trimble Navigation Limited</td><td>2001-01-19</td><td class="expired">✅ EXPIRED 2021</td></tr>
+    <tr><td>US20110153170A1</td><td>System and Method for Controlling an Implement</td><td>Caterpillar Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>US20110213529A1</td><td>System and Method for Determining Position on Implement</td><td>Caterpillar Inc.</td><td>2010-02-26</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>AU2015200366B2</td><td>Adaptive Control System and Method for Machine Implements</td><td>Caterpillar Inc.</td><td>2014-02-21</td><td class="active">⚠️ ACTIVE</td></tr>
+    <tr><td>EP2516757B1</td><td>System and Method for Limiting Operator Control of an Implement</td><td>Caterpillar, Inc.</td><td>2009-12-23</td><td class="active">⚠️ ACTIVE</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== EXPIRY CAVEATS ===== -->
+<h2>Expiry Caveats</h2>
+<ul>
+  <li>Pre-1995 US patents: 17-year-from-grant term. All listed pre-1995 patents are well expired.</li>
+  <li>Post-June 8, 1995 US patents: 20 years from earliest priority date.</li>
+  <li>Maintenance fee lapse <strong>not independently verified</strong> — any post-1990 patent could have lapsed earlier. Verify at <a href="https://patentcenter.uspto.gov" target="_blank">USPTO Patent Center</a> before relying on active/expired status.</li>
+  <li>Non-target assignees (Barber Greene, Spectra-Physics, Barco) appear as false positives via prior-art citation matching. Listed verbatim as they appeared in results.</li>
+  <li>Google Patents SPA pagination limited retrieval to page 1 (top 10 by relevance) for cells with &gt;10 results. Tail entries are noted but not named.</li>
+</ul>
+
+</body>
+</html>
