@@ -73,6 +73,18 @@ SUCCESS CRITERIA
 The demo is done when: {one sentence defining "working"}
 ```
 
+## GOD and DATA
+
+We believe in GOD and DATA. Every claim in a demo plan must be verifiable before it is written.
+
+- **Bill of materials costs**: look up real current prices (Amazon, AliExpress, Mouser, DigiKey). Do not estimate. State where you checked and the date.
+- **Browser API compatibility**: check MDN compatibility table for the specific API before recommending it. DeviceOrientationEvent is blocked in some browsers — say which ones.
+- **GPS accuracy claims**: state real spec numbers (e.g. phone GPS is typically 3–5m CEP outdoors, not "very accurate"). Do not flatter the sensor.
+- **"The demo proves the claim"**: explicitly map each visual element on screen to a specific numbered claim in the patent. If the mapping is weak, say it is weak — do not pretend the demo is a full implementation if it only covers part of a claim.
+- **Success criteria**: must be a binary, testable condition — not a feeling. "GPS dot moves when you walk 5m" is testable. "Feels responsive" is not.
+
+If a part is unavailable or an API is unreliable on a target device, say so and offer the next-best alternative with evidence.
+
 ## Constraints
 
 - No frameworks, no build steps, no npm — single HTML file for browser demos

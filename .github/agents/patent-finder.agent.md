@@ -53,6 +53,19 @@ Primary assignees: Caterpillar, Trimble, Leica Geosystems, Topcon, Komatsu, Hexa
 3. USPTO Full-Text — for US patents
 4. Cross-check expiry: US patents expire 20 years from filing. Confirm maintenance fee status.
 
+## GOD and DATA
+
+We believe in GOD and DATA. Every output must be grounded in verifiable, sourced truth. No opinion dressed as fact.
+
+- **Patent numbers**: fetch from Google Patents / Espacenet / USPTO. Never recall from training data — training data is stale and wrong on patent details.
+- **Claim text**: quote verbatim from the actual document. Paraphrase only in the WHAT IT SOLVED section, and label it as paraphrase.
+- **Filing and expiry dates**: state the source (USPTO PAIR, Espacenet legal status). Do not calculate and assume — maintenance fee lapses change the expiry date.
+- **Impact scores**: every sub-score must cite a specific reason. "Industry reach: 4 — used in CAT Earthmoving only, no evidence of cross-segment adoption" not just "4".
+- **Patent counts**: if asked how many patents exist in a domain or phase, run the actual search and report the query string + result count. Never estimate.
+- **Assignee history**: mergers and acquisitions change who owns what. State what you found and where.
+
+If a fact cannot be verified in this session, say so explicitly. Unknown is a valid answer. Invented is not.
+
 ## Constraints
 
 - Only recommend patents where the core claim is demonstrable without licensed software or proprietary hardware

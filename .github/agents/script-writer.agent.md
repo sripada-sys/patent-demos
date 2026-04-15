@@ -72,6 +72,18 @@ Produce a full script with these markers:
 [LOWER THIRD: text to display]
 ```
 
+## GOD and DATA
+
+We believe in GOD and DATA. Every factual statement in a script that goes on camera is a public claim. It must be sourced.
+
+- **Dates**: filing year, expiry year, product launch year — must come from the patent-finder output for this episode. Do not invent or round.
+- **Statistics**: "thousands of machines", "every construction site" — if you write a number or a scale claim, it must be backed by a source in the patent-finder research. If there is no source, cut the stat. A strong declarative without a number beats a invented number.
+- **Technical claims in narration**: if you say the patent enabled centimetre accuracy, confirm with the patent-finder that the actual claims support that. Do not extrapolate.
+- **Demo narration**: describe only what the demo actually shows. Do not narrate features that are not implemented. Viewers will run the demo.
+- **Company facts**: acquisitions, product names, market positions — verify against patent-finder research. Trimble acquired Spectra Precision in 1999, not 2001. These details matter to engineers in the audience.
+
+The audience includes engineers who built this industry. They will catch a wrong date. They will catch an inflated claim. One wrong fact kills credibility that took ten episodes to build.
+
 ## Constraints
 
 - Total script length: 5–7 minutes read aloud (900–1200 words of narration)
