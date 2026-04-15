@@ -37,17 +37,17 @@ College students. Resume output: "I implemented a 1993 Caterpillar patent."
 - Patent notes: `docs/patents/{patent-number}-simple.html` — plain language summary
 
 ## Year 1 Episode Queue (Machine Guidance)
-| Ep | Patent | Topic | Status |
-|----|--------|-------|--------|
-| 1 | EP0682786 (1993 CAT) | First guidance workscreen — GPS cross-section + plan view | TO BUILD |
-| 2 | US5519620 (expired 2014) | RTK GPS centimetre accuracy | PLANNED |
-| 3 | US6127968 (expired 2018) | OTF ambiguity resolution | PLANNED |
-| 4 | US7119741 (expired ~2023) | Network RTK / VRS | PLANNED |
-| 5 | US6701239 (2002 CAT) | Colour-coded cut/fill display | PLANNED |
-| 6 | US7139662 (2004 Trimble) | Dual-antenna blade tilt (~expired 2024) | PLANNED |
-| 7 | US8145391 (2008 Trimble) | Automatic blade control PID | PLANNED |
-| 8 | US9493929 (Komatsu) | Excavator bucket vs design | PLANNED |
-| 9 | US11761173 (active, own) | In-field pad design | PLANNED |
+| Ep | Patent | Segment | Topic | Status |
+|----|--------|---------|-------|--------|
+| 1 | EP0682786 (1993 CAT) | Earthmoving | First guidance workscreen — GPS cross-section + plan view | TO BUILD |
+| 2 | US5519620 (expired 2014) | Earthmoving | RTK GPS centimetre accuracy | PLANNED |
+| 3 | US6127968 (expired 2018) | Earthmoving | OTF ambiguity resolution | PLANNED |
+| 4 | US7119741 (expired ~2023) | Earthmoving | Network RTK / VRS | PLANNED |
+| 5 | US6701239 (2002 CAT) | Earthmoving | Colour-coded cut/fill display | PLANNED |
+| 6 | US7139662 (2004 Trimble) | Earthmoving | Dual-antenna blade tilt (~expired 2024) | PLANNED |
+| 7 | US8145391 (2008 Trimble) | Earthmoving | Automatic blade control PID | PLANNED |
+| 8 | US9493929 (Komatsu) | Construction Industries | Excavator bucket vs design | PLANNED |
+| 9 | US11761173 (active, own) | Earthmoving | In-field pad design | PLANNED |
 
 ## Episode 1 — EP0682786 — Target file
 `demos/ep0682786-guidance-demo.html`

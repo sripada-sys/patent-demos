@@ -35,8 +35,16 @@ STATUS: {Expired YYYY / Active / Unknown}
 
 ## Domain Focus
 
-Primary: Machine guidance, grade control, blade control, GPS/GNSS positioning, cut/fill display, site design, earthworks.
-Assignees of interest: Caterpillar, Trimble, Leica, Topcon, Komatsu, Hexagon, John Deere.
+Use CAT's industry segment taxonomy when classifying patents:
+
+| Segment | Machines | Patent territory |
+|---------|----------|-----------------|
+| **Earthmoving** | Dozers, motor graders, scrapers, soil compactors | Grade control, blade tilt, cut/fill display, GPS guidance workscreen |
+| **Construction Industries** | Excavators, wheel loaders, compact equipment | Bucket positioning, payload, dig depth vs design |
+| **Mining** | Large mining trucks, electric rope shovels, surface/underground | Fleet management, activities reporting, haul road guidance |
+| **Paving / Road Building** | Asphalt pavers, asphalt compactors | Screed control, thermal mapping, mat thickness, steering |
+
+Primary assignees: Caterpillar, Trimble, Leica Geosystems, Topcon, Komatsu, Hexagon, John Deere, Dynapac.
 
 ## Search Strategy
 
